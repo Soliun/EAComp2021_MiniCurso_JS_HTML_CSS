@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+</body>
+
+<script>
+
+    const produtos = [
+    {
+      oferta: true,
+      urlImage: 'https://a-static.mlcdn.com.br/618x463/kit-aparador-de-pelos-barba-e-cabelo-mondial-kt-87/magazineluiza/108510300/06795ee07584f9c7853ad4fe260aa301.jpg',
+      nome: 'Aparador de Pelos',
+      valor: 'R$ 199,99'
+    },
+    {
+      urlImage: 'https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/3121936/8/3121936884P1.jpg',
+      nome: 'Cadeira Escritório',
+      valor: 'R$ 499,99'
+    },
+    {
+      oferta: true,
+      urlImage: 'https://images-americanas.b2w.io/produtos/01/00/img/1618074/4/1618074458_1GG.jpg',
+      nome: 'Smart Tv Led 43"',
+      valor: 'R$ 2.179,99',
+    },
+    {
+      oferta: true,
+      urlImage: 'https://images-americanas.b2w.io/produtos/01/00/img/888922/6/888922656P1.jpg',
+      nome: 'Faqueiro',
+      valor: 'R$ 99,99'
+    },
+    {
+      tipo: 'Notebooks',
+      urlImage: 'https://images-americanas.b2w.io/produtos/01/00/img/3081358/8/3081358804_1GG.jpg',
+      nome: 'Notebook Samsung',
+      valor: 'R$ 2.417,07',
+    },
+    {
+      tipo: 'Notebooks',
+      urlImage: 'https://images-americanas.b2w.io/produtos/01/00/img/1824323/5/1824323574_1GG.jpg',
+      nome: 'Notebook Acer',
+      valor: 'R$ 5.349,78'
+    },
+    {
+      tipo: 'Notebooks',
+      urlImage: 'https://images-americanas.b2w.io/produtos/01/00/img/3058114/9/3058114959_1GG.jpg',
+      nome: 'Notebook Dell',
+      valor: 'R$ 4.199,99',
+    }
+  ]
+
+  const mostrarProdutos = produtos.map((item, index) => {
+    return `
+      <div class="box">
+        <img src=${item.urlImage}>
+        <p>${item.nome}</p>
+        <span>${item.valor}<span>
+      </div>
+    `
+  }) 
+
+  const filtrarOfertas = produtos.filter((item, index) => {
+    return item.oferta === true
+  })
+
+  const mostrarOfertas = filtrarOfertas.map((item, index) => {
+      return `
+        <div class="box-oferta">
+          <img src=${item.urlImage}>
+          <p>${item.nome}</p>
+          <span>${item.valor}<span>
+        </div>
+      `
+  })
+
+  const filtrarNotebooks = produtos.filter((item, index) => {
+    return item.tipo == 'Notebooks'
+  })
+
+  const mostrarNotebooks = filtrarNotebooks.map((item, index) => {
+    return `
+      <div class="box">
+        <img src=${item.urlImage}>
+        <p>${item.nome}</p>
+        <span>${item.valor}<span>
+      </div>
+    `
+  })
+
+  document.querySelector('.produtos').innerHTML = mostrarProdutos.join('')
+  document.querySelector('.ofertas').innerHTML = mostrarOfertas.join('')
+  document.querySelector('.notebooks').innerHTML = mostrarNotebooks.join('')
+
+</script>
+  
+</html>
